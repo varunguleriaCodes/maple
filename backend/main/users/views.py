@@ -1,7 +1,6 @@
 from flask_restful import Resource
-from flask import request,Response
+from flask import request
 from main.users.business import *
-from main.common import create_custom_response
 from main.common import *
 from flask_jwt_extended import jwt_required
 class UserRegister(Resource):
@@ -37,6 +36,8 @@ class User(Resource):
        except Exception as e:
            response={"status":False,"message":"Error:{}".format(str(e))}
            return create_custom_response(response,400) 
+    
+    @jwt_required()
     def delete(self,id):
         try:
             data=delete_user_details(id)
@@ -45,6 +46,7 @@ class User(Resource):
         except Exception as e:
             response={"status":False,"message":"Error:{}".format(str(e))}
             return create_custom_response(response,400)
+    
     @jwt_required() 
     def put(self,id):
         try:
