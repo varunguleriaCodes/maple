@@ -5,14 +5,14 @@
     padding-top: 100px;
     padding-bottom: 100px;
 }
-.loginsignup-container{
+.login-container{
     width: 580px;
-    height: 600px;
+    height: 500px;
     background:white;
     margin: auto;
     padding: 40px 60px;
 }
-.loginsignup-container h1{
+.login-container h1{
     margin: 20px 0px;
 }
 .loginsignup-fields{
@@ -30,7 +30,7 @@ outline: none;
 color:#5c5c5c;
 font-size:18px;
 }
-.loginsignup-container button{
+.login-container button{
     width: 580px;
     height: 72px;
     color:
@@ -51,13 +51,4 @@ font-size:18px;
 .loginsignup-login span{
     color:#ff4141;
     font-weight: 600;
-}
-.loginsignup-agree{
-    display: flex;
-    align-items: center;
-    margin-top: 25px;
-    gap: 20px;
-    color:#5c5c5c;
-    font-size:18px;
-    font-weight: 500;
 }

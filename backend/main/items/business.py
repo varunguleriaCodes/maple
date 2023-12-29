@@ -20,9 +20,9 @@ def create_item(data,file):
                 permission=BlobSasPermissions(read=True),
                 expiry=datetime.max
             )
-        data['image_url'] = f"https://{blob_service_client.account_name}.blob.core.windows.net/{current_app.config['CONTAINER_NAME']}/{filename}?{sas_token}" 
         if 'image' in data:
             del data['image']
+        data['image'] = f"https://{blob_service_client.account_name}.blob.core.windows.net/{current_app.config['CONTAINER_NAME']}/{filename}?{sas_token}" 
     add_item=collection_2.insert_one(data)
     return add_item
 

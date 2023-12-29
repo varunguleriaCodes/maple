@@ -28,7 +28,7 @@ class Cart(Resource):
     def put(self):
         try:
             filter=request.args.to_dict()
-            data=update_cart_data(filter,request.get_json())
+            data=update_cart_data(request.get_json())
             response={"status":True,"data":data}
             return create_custom_response(response,200) 
         except Exception as e:

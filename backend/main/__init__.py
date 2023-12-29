@@ -5,6 +5,7 @@ from main.users.views import *
 from main.items.views import *
 from main.cart.views import *
 from flask_restful import Api
+from flask_cors import CORS
 def create_app():
     app=Flask(__name__)
     app.config['JWT_SECRET_KEY']="secret_key"
@@ -12,6 +13,8 @@ def create_app():
     app.config['AZURE_STORAGE_CONNECTION_STRING']="Connection String"
     app.config['CONTAINER_NAME']="Container Name"
     
+
+    CORS(app)
     jwt=JWTManager(app)
     api=Api(app)
 
