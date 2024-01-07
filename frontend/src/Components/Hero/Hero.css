@@ -1,7 +1,10 @@
 .hero{
-    height: 100vh;
+    /* height: 150vh; */
     background: linear-gradient(180deg, #fde1ff,#e1ffea22 60%);
     display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 .hero-left{
     flex:1;
@@ -49,4 +52,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
 }

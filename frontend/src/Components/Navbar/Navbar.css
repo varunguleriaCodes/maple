@@ -43,7 +43,7 @@
     align-items: center;
     gap:45px;
 }
-.nav-login-cart button{
+.nav-login-cart-button{
     width:157px;
     height: 58px;
     outline: none;

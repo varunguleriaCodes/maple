@@ -3,7 +3,7 @@ import './Offers.css'
 import exclucive_image from '../Assets/exclusive_image.png'
 const Offers = () =>{
   return(
-    <div className="offers">
+    <div className="offers" style={{overflow:"none"}}>
       <div className="offers-left">
         <h1>Exclusive</h1>
         <h1>Offers For You</h1>

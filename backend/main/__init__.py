@@ -4,6 +4,7 @@ from main.connections import *
 from main.users.views import *
 from main.items.views import *
 from main.cart.views import *
+from main.payment.views import *
 from flask_restful import Api
 from flask_cors import CORS
 def create_app():
@@ -25,5 +26,9 @@ def create_app():
     api.add_resource(Item,"/item/<id>")
     api.add_resource(Filter,"/items-filter")
     api.add_resource(Cart,'/cart')
+    api.add_resource(SearchCart,'/search-cart')
+    api.add_resource(Payment,'/create-payment')
+    api.add_resource(Order,'/get_order_data/<id>')
+    api.add_resource(AllOrders,'/all_order_details_user/<id>')
     return app;
     

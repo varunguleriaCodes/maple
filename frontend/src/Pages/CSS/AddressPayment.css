@@ -1,0 +1,141 @@
+input, label {
+    margin: 5px 5px;
+  }
+  
+  .form-group {
+    margin: 30px auto;
+    width: 450px;
+  }
+  
+  .fc {
+    float: left;
+  }
+  
+  #inputStreet {
+    width: 97%;
+  }
+  
+  #inputCity {
+    width: 45%;
+  }
+  
+  #inputState {
+    width: 50%;
+  }
+  
+  #inputZip {
+    width: 45%;
+  }
+  
+  #inputCounty {
+    width: 45%;
+  }
+  
+  #inputCountry {
+    width: 50%;
+  }
+  .credit-card{
+    width: 360px;
+    height: 400px;
+    margin: 60px auto 0;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+  }
+  .form-header{
+    height:60px;
+    padding: 20px 30px 0;
+    border-bottom: 1px solid #e1e8ee;
+  }
+  .form-body{
+    height:340px;
+    padding: 30px 30px 20px;
+  }
+  .title{
+    font-size: 18px;
+    margin: 0;
+    color: #5e6977;  
+  }
+  .card-number, 
+  .cvv-input input,
+  .year select,
+  .month select{
+    font-size: 14px;
+    font-weight: 300;
+    line-height :27px;
+  }
+  .year select,
+  .month select{
+    padding: 4px 20px;
+  }
+  
+  .card-number,
+  .cvv-detail,
+  .cvv-input input,
+  .month select,
+  .year select{
+    color:#000;
+    opacity:1;
+    
+  }
+  .card-number, .cvv-input input, .month select, .paypal-btn, .proceed-btn, .year select {
+    height: 42px;
+  }
+  .card-number{
+    width:100%;
+    margin-bottom: 20px;
+    padding-left:20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+  }
+  .month select,
+  .year select{
+    width: 145px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+  }
+  .month select{
+    float: left;
+  }
+  .year select{
+    float: right;
+  }
+  
+  .cvv-input input{
+    float: left;
+    width: 145px;
+    padding-left: 20px;
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    background: #fff;
+  }
+  .cvv-details{
+    float: right;
+    width: 145px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 20px;
+    
+  }
+  .proceed-btn{
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    border-color: transparent;
+    border-radius: 6px;
+  }
+  .proceed-btn{
+    margin-bottom: 10px;
+    background: #7dc855;
+  }
+
+  .proceed-btn a{
+    color: #fff;
+  }
+.address-heading{
+  color: #343F3E;
+  font-family: 'Nunito', helvetica, sans-serif;
+}

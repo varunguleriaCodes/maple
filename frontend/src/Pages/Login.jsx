@@ -2,13 +2,16 @@ import React,{useState,useContext} from "react";
 import './CSS/Login.css'
 import axios from "axios";
 import { ShopContext } from "../Context/ShopContext";
-
+import { useNavigate,Link } from 'react-router-dom';
+import Popup from'../Components/Popup/Popup'
 const Login=()=>{
-    const {all_products,userData,setUserData}=useContext(ShopContext)
+    const {userData,setUserData,cartData,setCartData}=useContext(ShopContext)
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [errorMsg,setErrorMsg]=useState('')
     const [showErrorMsg,setShowErrorMsg]=useState(false)
+    const [modal,setModal]=useState(false)
+    const navigate=useNavigate()
     const checkLoginFormValidation =()=>{
         if(email==='' && password==='')
         {
@@ -44,16 +47,23 @@ const Login=()=>{
         }
         axios.post('http://127.0.0.1:5000/login',loginData).then(response=>{
             console.log(response.data.data)
-            const currentResponse=response.data.data;
           if(response.data.status)
           {
-            localStorage.setItem('access_token',response?.data.data?.access_token)
+            localStorage.setItem('user_data',JSON.stringify(response?.data.data?.user_data))
 
             setUserData(response.data.data.user_data)
             console.log(userData)
+            axios.get('http://127.0.0.1:5000/cart?user_id='+response.data.data.user_data._id).then(response=>{
+                console.log(response)
+                if(response.data.data!=null && response.data.data.length!=0) setCartData(response.data.data)
+                navigate('/')
+            })
+            
           }
         }).catch(error=>{
-
+            setModal(true);
+            document.body.classList.add('active-modal')
+            setUserData(null)
         })
     }
     return(
@@ -66,8 +76,9 @@ const Login=()=>{
                 </div>
                 {showErrorMsg && <p style={{ color: 'red', marginTop:10 }}>{errorMsg}</p>}
                 <button onClick={()=>userLogin()}>Login</button>
-                <p className="loginsignup-login">Don't have an account?<span>Sign Up</span></p>
+                <p className="loginsignup-login">Don't have an account?<Link to="/signup" style={{ textDecoration: 'none', color: '#ff4141' }}>Sign Up</Link></p>
             </div>
+            {modal && <Popup show={modal} onHide={() => setModal(false)} error_message={"Facing some issues, Please Try Again Later."}/>}
         </div>
     )
 }

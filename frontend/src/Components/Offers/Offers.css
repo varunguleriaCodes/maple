@@ -6,6 +6,8 @@ margin:auto;
 padding:0px 140px;
 margin-bottom: 150px;
 background: linear-gradient(180deg, #fde1ff,#e1ffea22 60%);
+overflow: hidden;
+position: relative;
 }
 .offers-left{
  flex:1;

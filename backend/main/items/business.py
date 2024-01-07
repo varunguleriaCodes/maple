@@ -4,7 +4,7 @@ from flask import current_app
 import uuid,os,pymongo
 from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
 from datetime import datetime
-
+import re
 
 def create_item(data,file):
     if file is not None:
@@ -79,6 +79,11 @@ def get_filters_data(requested_filters):
     if "category" in requested_filters:
         params['category']=requested_filters.get('category')
     if "name" in requested_filters:
-        params['name']=requested_filters.get('name')
-    items_based_on_filters=collection_2.find(params)
-    return list(items_based_on_filters)
+        name_filter = requested_filters.get('name')
+        regex_pattern = re.compile(re.escape(name_filter), re.IGNORECASE)
+        params['name'] = {'$regex': regex_pattern}
+    skip_items=requested_filters.get('skip',0)
+    total_count = collection_2.count_documents(params)
+    items_based_on_filters=collection_2.find(params).skip(int(skip_items)).limit(12)
+    filtered_items_list = list(items_based_on_filters)
+    return {"total_count":total_count,"items":filtered_items_list}

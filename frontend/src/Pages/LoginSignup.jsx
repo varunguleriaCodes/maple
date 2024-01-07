@@ -1,8 +1,9 @@
 import React,{useState} from "react";
 import './CSS/LoginSignup.css'
-import './CSS/Modal.css'
+// import './CSS/Modal.css'
 import axios from "axios";
 import { useNavigate,Link } from 'react-router-dom';
+import Popup from "../Components/Popup/Popup";
 const LoginSignup=()=>{
     const [userName,setUserName]=useState('')
     const [email,setEmail]=useState('')
@@ -56,16 +57,14 @@ const LoginSignup=()=>{
         }
     }).catch(error=>{
        setModal(true);
-       document.body.classList.add('active-modal')
     })
     }
-    const toggleModal=()=>{
-        setModal(false);
-        document.body.classList.remove('active-modal')
-        setUserName('')
-        setEmail('')
-        setPassword('')
-    }
+    // const toggleModal=()=>{
+    //     setModal(false);
+    //     setUserName('')
+    //     setEmail('')
+    //     setPassword('')
+    // }
     return(
         <div className="loginsignup">
             <div className="loginsignup-container">
@@ -81,21 +80,8 @@ const LoginSignup=()=>{
                 <button onClick={()=>handleSignUp()}>Sign Up</button>
                 <p className="loginsignup-login">Already have an account?<span><Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>Login Here</Link></span></p>
             </div>
-            {modal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Error Popup</h2>
-            <p>
-             We are currently facing an error! Please try again later.
-            </p>
-            <div className="close-modal">
-            <button  onClick={()=>toggleModal()}>
-              CLOSE
-            </button>
-            </div>
-          </div>
-        </div>
-      )}
+            {modal && <Popup show={modal} onHide={() => setModal(false)} error_message={"Facing some issues, Please Try Again Later."}/>
+      }
         </div>
     )
 }

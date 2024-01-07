@@ -47,7 +47,7 @@ class User(Resource):
             response={"status":False,"message":"Error:{}".format(str(e))}
             return create_custom_response(response,400)
     
-    @jwt_required() 
+    # @jwt_required() 
     def put(self,id):
         try:
             requested_data=request.get_json()
